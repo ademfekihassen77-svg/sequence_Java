@@ -61,9 +61,13 @@ public class Planning {
 
     public int PlusAncienReservation(int parDebut, int parFin) {
         int plusAncien = parDebut ;
-        for(int i = parDebut; i <= parFin ; i++) {
-            return null
+        for(int i = parDebut+1; i <= parFin ; i++) {
+            if (chreservation[i] == null && chreservation[i].getDate().compareTo(chreservation[plusAncien].getDate()) < 0){
+                plusAncien = i;
+
+            }
         }
+        return plusAncien ;
     }
 
 

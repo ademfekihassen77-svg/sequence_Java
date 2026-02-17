@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Date {
-    private int chJour;
-    private int chMois;
-    private int chAnn;
+    protected int chJour;
+    protected int chMois;
+    protected int chAnn;
 
 
     public Date(int parannees) {
