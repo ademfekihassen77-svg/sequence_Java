@@ -1,5 +1,6 @@
+import java.io.Serializable;
 import java.util.Calendar;
-public class DateCalendrier extends Date {
+public class DateCalendrier extends Date implements Comparable<Date>{
 
     private int chJourSemaine ;
 
@@ -11,44 +12,47 @@ public class DateCalendrier extends Date {
         chAnn = Today.get(Calendar.YEAR);
         chMois = Today.get(Calendar.MONTH) + 1;
         chJour = Today.get(Calendar.DAY_OF_MONTH);
-        int DAY_OF_WEEK = Today.get(Calendar.DAY_OF_WEEK);
 
-        if ( DAY_OF_WEEK == 2 ) {
-            chJourSemaine = 1;
-            // lundi = 1
-        }
-        if ( DAY_OF_WEEK == 3 ) {
-            chJourSemaine = 2;
-            // mardi = 2
-
-        }
-        if ( DAY_OF_WEEK == 4 ) {
-            chJourSemaine = 3;
-            // mercredi = 3
-        }
-        if ( DAY_OF_WEEK == 5 ) {
-            chJourSemaine = 4;
-            // jeudi = 4
-        }
-        if ( DAY_OF_WEEK == 6 ) {
-            chJourSemaine = 5;
-            // vendredi = 5
-        }
-        if ( DAY_OF_WEEK == 7 ) {
-            chJourSemaine = 6;
-            // samedi = 6
-        }
-        if ( DAY_OF_WEEK == 1 ) {
+        int jourSem = Today.get(Calendar.DAY_OF_WEEK);
+        if ( jourSem == 1 ) {
             chJourSemaine = 7;
             // dimanche = 7
         }
+        chJourSemaine = jourSem - 1;
+        // les autres jours
+    }
 
+    public DateCalendrier (int parjour, int parmois ,int parannees){
+        super(parjour,parmois,parannees);
 
+        chAnn = parannees;
+        chMois = parmois;
+        chJour = parjour;
 
+        Calendar dateC = Calendar.getInstance();
+        dateC.set(chAnn,chMois - 1 ,chJour);
 
-
-
-
+        int jourSem = dateC.get(Calendar.DAY_OF_WEEK);
+        if ( jourSem == 1 )
+            chJourSemaine = 7;
+            // dimanche = 7
+        else
+            chJourSemaine = jourSem - 1;
 
     }
+
+    public String toString() {
+        return "date du calendrier est : "+ chJour + "/" + chMois + "/" + chAnn +" et c'est un "+ chJourSemaine;
+    }
+
+    public DateCalendrier dateDuLendemain () {
+        Date date = super.jour_Apres();
+        return new DateCalendrier(date.chJour, date.chMois, date.chAnn);
+    }
+
+    public DateCalendrier dateDeLaVeille () {
+        Date date = super.date_de_la_veille();
+        return new DateCalendrier(date.chJour, date.chMois, date.chAnn);
+    }
+
 }

@@ -49,7 +49,7 @@ public class Planning {
     }
     public Reservation []  getReservation (Date parDate) {
         Reservation [] resultat = new Reservation [CH_TAILLE_TAB];
-        int indRes = 0
+        int indRes = 0 ;
         for  (int i = 0; i < CH_TAILLE_TAB; i++) {
             if (chreservation[i] == null && parDate.compareTo(chreservation[i].getDate()) == 0) {
                 resultat[indRes] = chreservation[i];

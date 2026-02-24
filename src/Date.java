@@ -87,6 +87,22 @@ public class Date {
         return new Date(nouveauJour, nouveauMois, nouvelleAnnee);
     }
 
+    public Date date_de_la_veille() {
+        if (est_valide(chJour,chMois,chAnn)) {
+            if (chJour > 1) {
+                chJour--;
+            } else if (chMois > 1) {
+                chMois--;
+                chJour = dernierJourDuMois(chMois, chAnn);
+            } else {
+                chAnn--;
+                chMois = 12;
+                chJour = dernierJourDuMois(chMois, chAnn);
+            }
+        }
+        return new Date(chJour,chMois,chAnn);
+    }
+
     public int compareTo(Date autreDate) {
         if (this.chAnn < autreDate.chAnn) {
             return -1;
