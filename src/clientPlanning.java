@@ -1,6 +1,9 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class clientPlanning {
     public static void main(String [] args) {
-        Planning planning = new Planning(5);
+        /*Planning planning = new Planning(5);
 
         Date d1 = new Date(12, 2, 2026);
         Date d2 = new Date(13, 2, 2026);
@@ -12,6 +15,7 @@ public class clientPlanning {
 
         PlageHoraire ph1 = new PlageHoraire(h1, h2);
         PlageHoraire ph2 = new PlageHoraire(h3, h4);
+
 
         Reservation r1 = new Reservation(ph1, d1, "activiter jetskki");
         Reservation r2 = new Reservation(ph2, d1,"activite buggy dans le desert");
@@ -26,6 +30,16 @@ public class clientPlanning {
         System.out.println(planning.toString());
 
         System.out.println(planning.getDateReservation(new Date(13,2,2025)));
+         */
+
+        try {
+            Planning planning = new Planning(5);
+            Scanner scanner = new Scanner(new File("data" + File.separator + "planning.txt"));
+            scanner.useDelimiter(",");
+            while (scanner.hasNext()){
+                String intitule = scanner.next().trim();
+            }
+        }
 
     }
 
