@@ -11,7 +11,7 @@ public class clientreservation {
 
         Reservation R2 = new Reservation(p2,d2,"activié jetski ") ;
         System.out.println(R2);
-        System.out.println(R2.comparToR(R1));
+        System.out.println(R2.comparTo(R1));
 
 
 

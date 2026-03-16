@@ -1,4 +1,4 @@
-public class Reservation {
+public class Reservation implements Comparable <Reservation>{
 
     private String chtitre;
     private Date chDate ;
@@ -14,7 +14,7 @@ public class Reservation {
     }
 
 
-    public int comparToR(Reservation parPH) {
+    public int compareTo(Reservation parPH) {
 
         if (this.chDate.compareTo(parPH.chDate) != 0) {
             return this.chDate.compareTo(parPH.chDate);
