@@ -22,12 +22,7 @@ public class ClientPlanningCollection {
                 int heureF = scanner.nextInt();
                 int quartHeureF = scanner.nextInt();
 
-                planning.ajout(new Reservation(
-
-                        new DateCalendrier(jour, mois, annee),
-                        new PlageHoraire(new Horaire(heureD, quartHeureD),
-                                new Horaire(heureF, quartHeureF ,
-                        intitule ));
+                planning.ajout(new Reservation(new DateCalendrier(jour, mois, annee), new PlageHoraire(new Horaire(heureD, quartHeureD), new Horaire(heureF, quartHeureF)), intitule );
 
 
             }

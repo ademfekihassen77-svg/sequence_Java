@@ -1,10 +1,10 @@
 public class Reservation implements Comparable <Reservation>{
 
     private String chtitre;
-    private Date chDate ;
+    private DateCalendrier chDate ;
     private PlageHoraire chPlageHoraire ;
 
-    public Reservation(PlageHoraire parPlageHoraire, Date parDate, String partitre){
+    public Reservation(PlageHoraire parPlageHoraire, DateCalendrier parDate, String partitre){
         chtitre = partitre;
         chDate = parDate;
         chPlageHoraire  = parPlageHoraire;
